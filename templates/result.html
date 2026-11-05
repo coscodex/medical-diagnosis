@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnosis Results</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Medical Diagnosis System</a>
+  </nav>
+
+  <div class="container mt-5">
+    <h1>Diagnosis Results</h1>
+
+    {% if diseases %}
+      <h3>Possible Diseases:</h3>
+      <ul>
+        {% for disease in diseases %}
+          <li>{{ disease.name }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No diseases found for the selected symptoms.</p>
+    {% endif %}
+    
+    <a href="{% url 'diagnose' %}" class="btn btn-secondary">Diagnose Again</a>
+  </div>
+
+  <footer class="footer bg-dark text-white text-center mt-4 p-3">
+    <p>© 2024 Medical Diagnosis System</p>
+  </footer>
+</body>
+</html>
+
+
+

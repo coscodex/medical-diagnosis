@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnose Your Symptoms</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Medical Diagnosis System</a>
+  </nav>
+
+  <div class="container mt-5">
+    <h1>Diagnose Your Symptoms</h1>
+    <form method="POST" action="{% url 'diagnose' %}">  <!-- Ensure this URL is correct -->
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="symptom1">Symptom 1:</label>
+        <select class="form-control" id="symptom1" name="symptom1" required>
+          {% for symptom in symptoms %}
+            <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="symptom2">Symptom 2:</label>
+        <select class="form-control" id="symptom2" name="symptom2" required>
+          {% for symptom in symptoms %}
+            <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="symptom3">Symptom 3:</label>
+        <select class="form-control" id="symptom3" name="symptom3" required>
+          {% for symptom in symptoms %}
+            <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="symptom4">Symptom 4:</label>
+        <select class="form-control" id="symptom4" name="symptom4" required>
+          {% for symptom in symptoms %}
+            <option value="{{ symptom.id }}">{{ symptom.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <footer class="footer bg-dark text-white text-center mt-4 p-3">
+    <p>© 2026 Medical Diagnosis System</p>
+  </footer>
+</body>
+</html>
+
+
+
